@@ -26,7 +26,7 @@ const Home = () => {
           minHeight: "80vh",
         }}
       ></div>
-      <div className="container_left container_right">
+      <div className="container_left container_right my-10">
         <h2 className="section-gap__top text-center font-bold text-xl lg:text-2xl 2xl:text-4xl">
           Our Services
         </h2>

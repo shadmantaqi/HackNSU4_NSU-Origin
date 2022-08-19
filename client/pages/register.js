@@ -1,6 +1,7 @@
 import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 const InitialFormData = {
   username: "",
@@ -15,6 +16,7 @@ const InitialFormData = {
 };
 
 const Register = () => {
+  const router = useRouter();
   // form states
   const [formData, setFormData] = useState(InitialFormData);
   const [errorMessage, setErrorMessage] = useState(formData);
@@ -26,7 +28,8 @@ const Register = () => {
   };
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    setErrorMessage(validator(formData));
+    router.push("/login")
+    // setErrorMessage(validator(formData));
   };
 
   // api handler
@@ -187,6 +190,11 @@ const Register = () => {
             {errorMessage.confirm_password ? (
               <div className="error_style">{errorMessage.confirm_password}</div>
             ) : null}
+          </div>
+          <div>
+            <button className="btn-primary" onClick={handleOnSubmit}>
+              Register
+            </button>
           </div>
         </div>
         <div className="social_login">
