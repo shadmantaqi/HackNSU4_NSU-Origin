@@ -198,7 +198,9 @@ const Register = () => {
             <FontAwesomeIcon icon={faFacebook} />
             <>continue with Facebook</>
           </button>
-          <p>Already have an account? <Link href="/login">Login</Link></p>
+          <p>
+            Already have an account? <Link href="/login">Login</Link>
+          </p>
         </div>
       </form>
     </div>

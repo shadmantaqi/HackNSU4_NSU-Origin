@@ -3,7 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import UserContext from "../context/UserContext";
 
 const links = [
   {
@@ -11,8 +12,12 @@ const links = [
     link: "/",
   },
   {
+    name: "Services",
+    link: "/services",
+  },
+  {
     name: "Articles",
-    link: "/articles",
+    link: "/articles"
   },
   {
     name: "About",
@@ -21,6 +26,7 @@ const links = [
 ];
 
 const Navbar = () => {
+  const { userData, setUserData } = useContext(UserContext);
   const [openUserMenu, setOpenUserMenu] = useState(false);
   const router = useRouter();
   useEffect(() => {
@@ -39,7 +45,6 @@ const Navbar = () => {
             <ul>
               {links.map((item, i) => {
                 const { name, link } = item;
-                console.log(router.pathname.includes(link), "<---");
                 return (
                   <li
                     key={i}
@@ -58,20 +63,26 @@ const Navbar = () => {
           </div>
         </div>
         <div className="n_c__account">
-          <div className="flex items-center justify-end gap-3">
-            <div className="flex flex-col items-end justify-center">
-              <p className="font-semibold">John Doe</p>
-              <p className="font-thin text-gray-400">Member</p>
-            </div>
-            <div className="bg-gray-300 rounded-full relative h-10 w-10">
-              <div className="absolute top-0 left-0 h-full w-full flex items-center justify-center">
-                <FontAwesomeIcon
-                  icon={faUser}
-                  onClick={() => setOpenUserMenu(true)}
-                />
+          {userData.login ? (
+            <div className="flex items-center justify-end gap-3">
+              <div className="flex flex-col items-end justify-center">
+                <p className="font-semibold">John Doe</p>
+                <p className="font-thin text-gray-400">Member</p>
+              </div>
+              <div className="bg-gray-300 rounded-full relative h-10 w-10">
+                <div className="absolute top-0 left-0 h-full w-full flex items-center justify-center">
+                  <FontAwesomeIcon
+                    icon={faUser}
+                    onClick={() => setOpenUserMenu(true)}
+                  />
+                </div>
               </div>
             </div>
-          </div>
+          ) : (
+            <Link href="/login">
+              <button className="btn-primary min-w-[100px]">Login</button>
+            </Link>
+          )}
         </div>
       </div>
       {openUserMenu ? (
@@ -80,9 +91,22 @@ const Navbar = () => {
           onClick={() => setOpenUserMenu(false)}
         >
           <div>
-            <Link href="/dashboard">Dashboard</Link>
-            <Link href="/login">Login</Link>
-            <button className="btn bg-red-600 text-white">Logout</button>
+            {userData.login ? (
+              <>
+                <Link href="/dashboard">Dashboard</Link>
+                <button
+                  className="btn bg-red-600 text-white"
+                  onClick={() => {
+                    setUserData({ login: false });
+                    router.push("/");
+                  }}
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <Link href="/login">Login</Link>
+            )}
           </div>
         </div>
       ) : null}
