@@ -1,0 +1,48 @@
+@import "../globals.scss";
+
+.login_container {
+    @extend .container_right;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+
+    height: 100vh;
+
+    h2 {
+        font-size: clamp(1.6rem, 2vw, 3rem);
+
+        padding-bottom: 0.3rem;
+        @apply border-b font-bold;
+    }
+
+    button {
+        @apply w-full;
+    }
+
+    form {
+        width: 50%;
+        height: 100%;
+
+        @media (max-width: 1024px) {
+            width: 100%;
+        }
+    }
+}
+
+.l_c__image {
+    background-image: url("../../static/images/W3Safety-Logo.png");
+
+    height: 100%;
+    width: 50%;
+
+    @media (max-width: 1024px) {
+        width: 0;
+    }
+
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

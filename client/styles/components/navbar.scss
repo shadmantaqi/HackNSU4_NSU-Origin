@@ -1,6 +1,88 @@
 @import "../globals.scss";
 
-.nav {
-    @apply bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-800;
-    color: $color-primary;
+nav {
+    position: sticky;
+    top: 0;
+
+    z-index: 98;
+
+    @apply py-2;
+    background-color: #f5f7ff;
+    color: black;
+}
+
+.nav_container {
+    position: relative;
+
+    display: flex;
+    flex-wrap: nowrap;
+
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.n_c__links {
+    ul {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+        li {
+            text-decoration: none;
+            a {
+                @apply font-medium text-black;
+                &:hover {
+                    @apply text-blue-600;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+.active_link {
+    a {
+        color: #4d6bf0 !important;
+    }
+}
+
+// .n_c__account {
+
+// }
+.n_c__user_profile__menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    z-index: 99;
+
+    display: flex;
+    justify-content: flex-end;
+
+    a {
+        @apply font-normal text-gray-600;
+
+        &:hover {
+            @apply text-blue-600;
+        }
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 0.5rem;
+
+        @apply bg-white shadow-lg py-3 px-2 mt-10 mr-5 border rounded-lg;
+
+        width: 200px;
+        height: 130px;
+    }
 }
