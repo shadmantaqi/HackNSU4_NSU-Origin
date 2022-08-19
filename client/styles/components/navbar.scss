@@ -6,11 +6,9 @@ nav {
 
     z-index: 98;
 
-    @extend .container;
-
     @apply py-2;
-    background-color: #080c18;
-    color: white;
+    background-color: #f5f7ff;
+    color: black;
 }
 
 .nav_container {
@@ -35,13 +33,19 @@ nav {
         li {
             text-decoration: none;
             a {
-                @apply font-medium text-white;
+                @apply font-medium text-black;
                 &:hover {
                     @apply text-blue-600;
                     cursor: pointer;
                 }
             }
         }
+    }
+}
+
+.active_link {
+    a {
+        color: #4d6bf0 !important;
     }
 }
 

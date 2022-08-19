@@ -1,5 +1,6 @@
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const InitialFormData = {
@@ -83,6 +84,7 @@ const Login = () => {
           <button className="btn-primary bg-blue-600 flex items-center gap-1 justify-center"><FontAwesomeIcon icon={faFacebook} />
             <>continue with Facebook</></button>
         </div>
+        <p>Don't have an account? <Link href="/register">Register</Link></p>
       </form>
     </div>
   );

@@ -15,7 +15,7 @@ a {
 }
 
 form {
-  @apply rounded-lg border p-1 lg:p-3 2xl:p-5;
+  @apply rounded-lg p-1 lg:p-3 2xl:p-5;
 
   display: flex;
   flex-direction: column;
