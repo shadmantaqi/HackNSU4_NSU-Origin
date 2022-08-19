@@ -1,14 +1,20 @@
-import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { useContext, useEffect, useState } from "react";
+import UserContext from "../context/UserContext";
 
 const InitialFormData = {
   email: "",
   password: "",
 };
 
+const doc = typeof document !== "undefined";
+
 const Login = () => {
+  const { userData, setUserData } = useContext(UserContext);
+  const router = useRouter();
   // form states
   const [formData, setFormData] = useState(InitialFormData);
   const [errorMessage, setErrorMessage] = useState(formData);
@@ -20,7 +26,9 @@ const Login = () => {
   };
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    setErrorMessage(validator(formData));
+    setUserData({ login: true });
+    router.push("/");
+    // setErrorMessage(validator(formData));
   };
 
   // api handler
@@ -78,13 +86,17 @@ const Login = () => {
         </div>
         <div className="social_login">
           <button className="btn bg-gray-200 text-black flex items-center gap-1 justify-center">
-            <FontAwesomeIcon icon={faGoogle} />
+            <FontAwesomeIcon icon={faGoogle}/>
             <>continue with Google</>
           </button>
-          <button className="btn-primary bg-blue-600 flex items-center gap-1 justify-center"><FontAwesomeIcon icon={faFacebook} />
-            <>continue with Facebook</></button>
+          <button className="btn-primary bg-blue-600 flex items-center gap-1 justify-center">
+            <FontAwesomeIcon icon={faFacebook}/>
+            <>continue with Facebook</>
+          </button>
         </div>
-        <p>Don't have an account? <Link href="/register">Register</Link></p>
+        <p>
+          Don't have an account? <Link href="/register">Register</Link>
+        </p>
       </form>
     </div>
   );

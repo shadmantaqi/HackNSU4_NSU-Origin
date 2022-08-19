@@ -1,3 +1,4 @@
+import Footer from "../components/Footer";
 import Contexts from "../context/Contexts";
 
 const { default: Navbar } = require("../components/Navbar");
@@ -8,6 +9,7 @@ const Layout = ({ children }) => {
       <main>
         <Navbar />
         {children}
+        <Footer />
       </main>
     </Contexts>
   );
