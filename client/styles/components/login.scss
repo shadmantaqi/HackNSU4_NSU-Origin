@@ -1,16 +1,18 @@
 @import "../globals.scss";
 
 .login_container {
-    @extend .container, .section-gap;
-    @apply rounded-lg border;
+    @extend .container_right;
 
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    height: 100vh;
 
     h2 {
-        text-align: center;
-        font-size: clamp(1.2rem, 2vw, 1.5rem);
+        font-size: clamp(1.6rem, 2vw, 3rem);
 
         padding-bottom: 0.3rem;
         @apply border-b font-bold;
@@ -19,4 +21,28 @@
     button {
         @apply w-full;
     }
+
+    form {
+        width: 50%;
+        height: 100%;
+
+        @media (max-width: 1024px) {
+            width: 100%;
+        }
+    }
+}
+
+.l_c__image {
+    background-image: url("../../static/images/W3Safety-Logo.png");
+
+    height: 100%;
+    width: 50%;
+
+    @media (max-width: 1024px) {
+        width: 0;
+    }
+
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
 }

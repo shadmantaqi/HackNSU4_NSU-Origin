@@ -4,6 +4,13 @@
     @apply px-10;
 }
 
+.container_left {
+    @apply pl-10;
+}
+.container_right {
+    @apply pr-10;
+}
+
 .section-gap {
     @apply py-10;
 }
@@ -24,4 +31,11 @@
     }
 
     @apply py-2 px-3 rounded-lg bg-gray-200;
+}
+
+.btn-primary {
+    @extend .btn;
+
+    background-color: #23e9b4;
+    color: white;
 }

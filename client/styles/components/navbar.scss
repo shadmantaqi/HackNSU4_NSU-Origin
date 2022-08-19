@@ -4,12 +4,18 @@ nav {
     position: sticky;
     top: 0;
 
+    z-index: 98;
+
     @extend .container;
 
     @apply py-2;
+    background-color: #080c18;
+    color: white;
 }
 
 .nav_container {
+    position: relative;
+
     display: flex;
     flex-wrap: nowrap;
 
@@ -29,12 +35,50 @@ nav {
         li {
             text-decoration: none;
             a {
-                @apply font-medium;
+                @apply font-medium text-white;
                 &:hover {
                     @apply text-blue-600;
                     cursor: pointer;
                 }
             }
         }
+    }
+}
+
+// .n_c__account {
+
+// }
+.n_c__user_profile__menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    z-index: 99;
+
+    display: flex;
+    justify-content: flex-end;
+
+    a {
+        @apply font-normal text-gray-600;
+
+        &:hover {
+            @apply text-blue-600;
+        }
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 0.5rem;
+
+        @apply bg-white shadow-lg py-3 px-2 mt-10 mr-5 border rounded-lg;
+
+        width: 200px;
+        height: 130px;
     }
 }
