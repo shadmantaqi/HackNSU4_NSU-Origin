@@ -5,11 +5,11 @@ const { default: Navbar } = require("../components/Navbar");
 const Layout = ({ children }) => {
   return (
     <Contexts>
-      <>
+      <main>
         <Navbar />
         {children}
-      </>
-    </Contexts>
+      </main>
+    // </Contexts>
   );
 };
 

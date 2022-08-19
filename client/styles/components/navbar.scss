@@ -1,6 +1,40 @@
 @import "../globals.scss";
 
-.nav {
-    @apply bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-800;
-    color: $color-primary;
+nav {
+    position: sticky;
+    top: 0;
+
+    @extend .container;
+
+    @apply py-2;
+}
+
+.nav_container {
+    display: flex;
+    flex-wrap: nowrap;
+
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.n_c__links {
+    ul {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+        li {
+            text-decoration: none;
+            a {
+                @apply font-medium;
+                &:hover {
+                    @apply text-blue-600;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
 }
